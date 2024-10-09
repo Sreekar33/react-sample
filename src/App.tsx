@@ -8,6 +8,10 @@ type FormValues = {
   firstName: string;
   lastName: string;
   age: number;
+  sap: {
+    sapID: string;
+    sapName: string;
+  };
 };
 
 export default function App() {
@@ -19,7 +23,12 @@ export default function App() {
     defaultValues: {
       firstName: "",
       lastName: "",
-      age: 0
+      age: 0,
+      sap: {
+        sapID: '',
+        sapName: ''
+      },
+      
     }
   });
   renderCount++;
@@ -55,7 +64,8 @@ export default function App() {
         />
 
         <input type="number" {...register("age", { valueAsNumber: true })} />
-
+        <input type="number" {...register("sap.sapID", { valueAsNumber: false })} />
+        <input type="number" {...register("sap.sapName", { valueAsNumber: false })} />
         <input type="submit" />
       </form>
     </div>
